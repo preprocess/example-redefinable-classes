@@ -22,6 +22,18 @@ class Child {
 
 }
 
+typeless class Decorator {
+    private $decorated;
+
+    public function __construct($decorated) {
+        $this->decorated = $decorated;
+    }
+
+    public function __call($method, $args) {
+        return $this->decorated->{$method}(...$args);
+    }
+}
+
 new Child("foo", "bar");
 
 new Child();
@@ -37,6 +49,20 @@ new Child;
 \Pre\RedefinableClasses\define('Child', 'Parent', null, null);
 
 \Pre\RedefinableClasses\define('Child', null, null, null);
+
+\Pre\RedefinableClasses\defineTypeless('Decorator', new class {
+    private $decorated;
+
+    public function __construct($decorated)
+    {
+        $this->decorated = $decorated;
+    }
+
+    public function __call($method, $args)
+    {
+        return $this->decorated->{$method}(...$args);
+    }
+});
 
 \Pre\RedefinableClasses\resolve('Child', ["foo", "bar"]);
 

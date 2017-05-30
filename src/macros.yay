@@ -20,7 +20,7 @@ macro {
     ·chain(
         class,
         ·ns()·name,
-        ·optional (
+        ·optional(
             ·chain(
                 extends,
                 ·ns()·extendsName
@@ -41,4 +41,17 @@ macro {
     )
 } >> {··trim(
     \Pre\RedefinableClasses\define(··stringify(·name), ·extends ?· {··stringify(·extendsName)} ·extends !· {null}, ·implements ?· {[··trim( ·implementsItems ··· (, ) {··trim( ··stringify(·implementsName) )} )]} ·implements !· {null}, ·body ?· {··stringify(··base64(·body))} ·body !· {null});
+)}
+
+macro {
+    ·chain(
+        typeless,
+        class,
+        ·ns()·name,
+        ·token("{"),
+        ·layer()·body,
+        ·token("}")
+    )
+} >> {··trim(
+    \Pre\RedefinableClasses\defineTypeless(··stringify(·name), new class {·body});
 )}
