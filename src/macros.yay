@@ -1,6 +1,6 @@
 <?php
 
-macro {
+macro ·recursion {
     ·chain(
         ·token(T_NEW),
         ·ns()·name,

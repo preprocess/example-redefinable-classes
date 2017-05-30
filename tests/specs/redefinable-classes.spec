@@ -40,6 +40,8 @@ new Child();
 
 new Child;
 
+new Decorator(new Decorated());
+
 --EXPECT--
 
 \Pre\RedefinableClasses\define('Child', 'Parent', ['One', 'Two', 'Three'], 'cHVibGljIGZ1bmN0aW9uIGhlbGxvKCkgewogICAgICAgIHByaW50ICJ3b3JsZCI7CiAgICB9Cg==');
@@ -69,3 +71,5 @@ new Child;
 \Pre\RedefinableClasses\resolve('Child', []);
 
 \Pre\RedefinableClasses\resolve('Child', null);
+
+\Pre\RedefinableClasses\resolve('Decorator', [\Pre\RedefinableClasses\resolve('Decorated', [])]);
