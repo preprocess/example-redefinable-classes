@@ -1,0 +1,36 @@
+{
+    "type": "pre-macro",
+    "name": "pre/redefinable-classes",
+    "repositories": [
+        {
+            "type": "path",
+            "url": "../pre-plugin"
+        }
+    ],
+    "require": {
+        "pre/plugin": "*"
+    },
+    "autoload": {
+        "files": [
+            "src/expanders.php"
+        ],
+        "psr-4": {
+            "Pre\\RedefinableClasses\\": "src"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^5.0|^6.0"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Pre\\RedefinableClasses\\": "tests"
+        }
+    },
+    "extra": {
+        "macros": [
+            "src/macros.yay"
+        ]
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}

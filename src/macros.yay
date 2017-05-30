@@ -1,0 +1,44 @@
+<?php
+
+macro {
+    ·chain(
+        ·token(T_NEW),
+        ·ns()·name,
+        ·optional (
+            ·chain(
+                ·token("("),
+                ·layer()·body,
+                ·token(")")
+            )
+        )·parameters
+    )
+} >> {··trim(
+    \Pre\RedefinableClasses\resolve(··stringify(·name), ·parameters ?· {[·body]} ·parameters !· {null})
+)}
+
+macro {
+    ·chain(
+        class,
+        ·ns()·name,
+        ·optional (
+            ·chain(
+                extends,
+                ·ns()·extendsName
+            )
+        )·extends,
+        ·optional (
+            ·chain(
+                implements,
+                ·lst(
+                    ·ns()·implementsName,
+                    ·token(",")
+                )·implementsItems
+            )
+        )·implements,
+        ·token("{"),
+        ·layer()·body,
+        ·token("}")
+    )
+} >> {··trim(
+    \Pre\RedefinableClasses\define(··stringify(·name), ·extends ?· {··stringify(·extendsName)} ·extends !· {null}, ·implements ?· {[··trim( ·implementsItems ··· (, ) {··trim( ··stringify(·implementsName) )} )]} ·implements !· {null}, ·body ?· {··stringify(··base64(·body))} ·body !· {null});
+)}
