@@ -1,14 +1,8 @@
 {
     "type": "pre-macro",
     "name": "pre/redefinable-classes",
-    "repositories": [
-        {
-            "type": "path",
-            "url": "../pre-plugin"
-        }
-    ],
     "require": {
-        "pre/plugin": "*"
+        "pre/plugin": "^0.7"
     },
     "autoload": {
         "files": [
@@ -30,7 +24,5 @@
         "macros": [
             "src/macros.yay"
         ]
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true
+    }
 }

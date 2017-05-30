@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0aff2decab9e33289f357e1e24680bb2",
+    "content-hash": "4a765eae2bf307c7b366b89001bb576c",
     "packages": [
         {
             "name": "doctrine/annotations",
@@ -347,12 +347,17 @@
         },
         {
             "name": "pre/plugin",
-            "version": "dev-master",
+            "version": "0.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/preprocess/pre-plugin.git",
+                "reference": "885e33695e005b56acc046649072eadc9c49ce4a"
+            },
             "dist": {
-                "type": "path",
-                "url": "../pre-plugin",
+                "type": "zip",
+                "url": "https://api.github.com/repos/preprocess/pre-plugin/zipball/885e33695e005b56acc046649072eadc9c49ce4a",
                 "reference": "885e33695e005b56acc046649072eadc9c49ce4a",
-                "shasum": null
+                "shasum": ""
             },
             "require": {
                 "composer-plugin-api": "^1.1",
@@ -380,14 +385,11 @@
                     "Pre\\Plugin\\": "src"
                 }
             },
-            "autoload-dev": {
-                "psr-4": {
-                    "Pre\\Plugin\\": "tests"
-                }
-            },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
-            ]
+            ],
+            "time": "2017-05-24T17:43:45+00:00"
         },
         {
             "name": "psr/log",
